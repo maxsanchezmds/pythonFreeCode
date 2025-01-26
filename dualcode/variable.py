@@ -1,8 +1,16 @@
 import json
 import os
 
+# Ruta al archivo variables.json en node_modules/dualcode
+def get_json_path():
+    current_dir = os.getcwd()
+    file_path = os.path.join(current_dir, 'node_modules', 'dualcode', 'variables.json')
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"El archivo variables.json no se encontró en {file_path}")
+    return file_path
+
 def saveVar(variable, name=None):
-    """Save a variable to variables.json."""
+    """Save a variable to variables.json in node_modules/dualcode."""
     if name is None:
         import inspect
         frame = inspect.currentframe().f_back
@@ -15,7 +23,7 @@ def saveVar(variable, name=None):
         
         name = var_name or 'unnamed_variable'
     
-    file_path = os.path.join(os.getcwd(), 'variables.json')
+    file_path = get_json_path()
     
     try:
         with open(file_path, 'r') as f:
@@ -29,8 +37,8 @@ def saveVar(variable, name=None):
         json.dump(data, f, indent=4)
 
 def deleteVar(name):
-    """Delete a variable from variables.json."""
-    file_path = os.path.join(os.getcwd(), 'variables.json')
+    """Delete a variable from variables.json in node_modules/dualcode."""
+    file_path = get_json_path()
     
     try:
         with open(file_path, 'r') as f:
@@ -45,8 +53,8 @@ def deleteVar(name):
             json.dump(data, f, indent=4)
 
 def seeAllVar():
-    """Return a dictionary of all variables in variables.json."""
-    file_path = os.path.join(os.getcwd(), 'variables.json')
+    """Return a dictionary of all variables in variables.json in node_modules/dualcode."""
+    file_path = get_json_path()
     
     try:
         with open(file_path, 'r') as f:
@@ -55,8 +63,8 @@ def seeAllVar():
         return {}
 
 def getVar(name):
-    """Retrieve a specific variable from variables.json."""
-    file_path = os.path.join(os.getcwd(), 'variables.json')
+    """Retrieve a specific variable from variables.json in node_modules/dualcode."""
+    file_path = get_json_path()
     
     try:
         with open(file_path, 'r') as f:

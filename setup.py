@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='dualcode',  # Nombre de tu paquete
-    version='1.0.0',             # Versión de tu paquete
+    version='2.0.0',             # Versión de tu paquete
     packages=find_packages(),  # Buscar todos los paquetes en el directorio
     install_requires=[],       # Si tu paquete depende de otros paquetes, ponlos aquí
     description='A package to manage variables in a JSON file',  # Descripción corta
