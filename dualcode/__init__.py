@@ -1,1 +1,3 @@
-from .variable import save_variable
+from .variable import saveVar, deleteVar, seeAllVar, getVar
+
+__all__ = ['saveVar', 'deleteVar', 'seeAllVar', 'getVar']

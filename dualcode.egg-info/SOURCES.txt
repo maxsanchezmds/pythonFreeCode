@@ -1,3 +1,4 @@
+LICENCE
 README.md
 setup.py
 dualcode/__init__.py
